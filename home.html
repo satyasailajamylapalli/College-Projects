@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+
+        .input, select, textarea {
+            width: 90%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-top:10px;
+			resize: vertical;
+        }
+        .sub_input{
+            width: 50%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 2px;
+            resize: vertical;
+        }
+        th{
+            text-align: left;
+			font-family:calibri;
+        }
+        .sub_title{
+			font-size:25px;
+			color:#4286f4;
+			font-family:calibri;
+			
+        }
+        input[type=submit],input[type=reset] {
+            background-color: #4286f4;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+            margin: 20px 0px;
+			
+        }
+        .title{
+            color:rgb(116, 19, 19);
+			color:#931975;
+			font-size:40px;
+			font-family:calibri;
+
+        }
+        input[type=submit]:hover,input[type=reset]:hover {
+            background-color: #45a049;
+        }
+        .clr{
+            color: black;
+        }
+
+        .container {
+            color:rgb(41, 41, 107);
+            margin-top:80px;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 5px 20px 0px 20px;
+            width: 90%;
+            margin: auto;
+        }
+		.set{
+			border-color:#f2f2f2;
+		}
+		.add_th{
+		width:300;
+		fint-size=20px;
+		text-align:center;
+		}
+		.add_field{
+		width:30.6%;
+		padding: 9px;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		resize: vertical;
+		margin-top:10px;
+		}
+		.add_field1{
+		width:47%;
+		padding: 9px;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		resize: vertical;
+		margin-top:10px;
+		}
+		
+		.input_field{
+		width:95%;
+		padding: 9px;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		resize: vertical;
+		margin-top:10px;
+		}
+		.input_field1{
+		width:97%;
+		padding: 9px;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		resize: vertical;
+		}		
+		.add_extra{
+		padding: 7px;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		resize: vertical;
+		}
+		.tooltip {
+			position: relative;
+			display: inline-black;
+		}
+
+		.tooltip .tooltiptext {
+			visibility: hidden;
+			width: 300px;
+			background-color: #f9edb1;
+			color: #000;
+			text-align: left;
+			border-radius: 10px;
+			padding: 5px 5px;
+			font-weight:normal;
+
+			/* Position the tooltip */
+			position: absolute;
+			z-index: 1;
+		   
+		}
+
+		.tooltip:hover .tooltiptext {
+			visibility: visible;
+		}
+		.tab{
+		padding-left:5em;
+		}
+		
+		
+		
+	/*	body {font-family: Arial, Helvetica, sans-serif;}*/
+
+/* Full-width input fields */
+.login {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+	
+
+/* Set a style for all buttons */
+button {
+    background-color:#4286f4;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.container_popup {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 10px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 40%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+    
+@keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+}
+		
+    </style>
+
+   <script>
+   var certificates=1;
+   var languages=1;
+   var academic=1;
+   var idea=1;
+   var innovative=1;
+   
+  
+ 
+ function addAcademic() {
+    var table = document.createElement('div');
+	academic++;
+    table.className = 'row';
+    table.innerHTML =
+        '<td><input type="text" name="qualification[]" id="qualification'+academic+'" value="" class="add_field" /></td><td>\
+        <input type="text" pattern="[0-9]+" maxlength="4" name="qyear[]" id="qyear'+academic+'" value="" class="add_field" /></td><td>\
+        <input type="text" pattern="[0-9.]+" maxlength="5" name="per[]" id="per'+academic+'" value="" class="add_field"/></td><td>\
+        <input type="button" value="-" onclick="removeAcademic(this)"></td>';
+
+    document.getElementById('content').appendChild(table);
+		document.getElementById("academic_count").value = academic;
+}
+
+function removeAcademic(input) {
+    document.getElementById('content').removeChild(input.parentNode);
+}
+
+function addInnovative() {
+    var table = document.createElement('div');
+	innovative++;
+    table.className = 'row';
+
+    table.innerHTML =
+        '<td><input type="text" class="add_field" id="problem'+innovative+'" name="problem[]" value="" /></td><td>\
+        <input type="text" name="solution[]" id="solution'+innovative+'" class="add_field" value="" /></td><td>\
+        <input type="text" name="details[]" id="details'+innovative+'" class="add_field" value=""/></td><td>\
+        <input type="button" value="-" onclick="removeInnovative(this)"></td>';
+
+    document.getElementById('innovative').appendChild(table);
+	document.getElementById("innovative_count").value = innovative;
+}
+
+function removeInnovative(input) {
+    document.getElementById('innovative').removeChild(input.parentNode);
+}
+
+function addIdea() {
+    var table = document.createElement('div');
+	idea++;
+    table.className = 'row';
+
+    table.innerHTML =
+        '<td>\
+        <input type="text" name="idea[]" id="idea'+idea+'" value="'+idea+'"  class="add_field1"/></td><td>\
+        <input type="text" name="domain[]" id="domain'+idea+'" value="" class="add_field1"/></td><td>\
+        <input type="button" value="-" onclick="removeIdea(this)"></td>';
+
+    document.getElementById('idea').appendChild(table);
+	document.getElementById("idea_count").value = idea;
+}
+
+function removeIdea(input) {
+    document.getElementById('idea').removeChild(input.parentNode);
+	
+}
+
+
+function addLanguages() {
+    var table = document.createElement('div');
+	languages++;
+    table.className = 'row';
+
+    table.innerHTML =
+        '<td>\
+        <input type="text" name="skill[]" id="skill'+languages+'" value=""  class="add_field"/></td><td>\
+        <input type="number" maxlength="2" name="rate[]" id="rate'+languages+'" value="" placeholder="1 to 10"  class="add_field"/></td><td>\
+        <input type="text" name="certify[]" id="certify'+languages+'" value=""  class="add_field"/></td>\
+		<td><input type="button" value="-" onclick="removeLanguages(this)"></td>';
+
+    document.getElementById('languages').appendChild(table);
+	document.getElementById("language_count").value = languages;
+}
+
+function removeLanguages(input) {
+    document.getElementById('languages').removeChild(input.parentNode);
+}
+
+
+function addCertificates() {
+    var table = document.createElement('div');
+	certificates++;
+    table.className = 'row';
+
+    table.innerHTML =
+        '<td>\
+        <input type="text" name="certificates[]" id="certificates'+certificates+'" value=""  class="input"/></td><td>\
+        <input type="button" value="-" onclick="removeCertificates(this)"></td>';
+
+    document.getElementById('certificates').appendChild(table);
+	document.getElementById("certificate_count").value = certificates;
+}
+
+function removeCertificates(input) {
+    document.getElementById('certificates').removeChild(input.parentNode);
+}
+
+var modal = document.getElementById('id01');
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+</head>
+<body>
+
+
+       <div class="container"> <table width="100%" align="middle">
+          <br> <table width="160" align="left"> <tr><th>&emsp;&emsp;<img src="jntuk-logo.png" height="120px" width="120px"/></th></tr></table>
+		   <table width="250" align="right"><h2 align="left" class="title"><b>STUDENT NOMINATIONS FOR INNOVATION CENTER (WIPRO)</b></h2></table></table>
+		   
+		   
+		   <div align="right"><button onclick="document.getElementById('id01').style.display='block'" style="width:auto;background-color:#f2f2f2;color:#4286f4;border:#4286f4;">Report</button></div>
+<form name="form" method="POST" action="submit_form.php" >             
+			 <fieldset class="set">		
+					
+                    <legend class="sub_title">Personal Information </legend>
+					<br>
+                 <table align="center">
+				 <table align="left" width="40%">
+				 <tr>
+                    <th>Name</th><th>:</th>
+                    <td> <input type="text" pattern="[a-zA-Z ]+" name="sname" id="sname" class="input" required><br></td>
+				</tr>
+				<tr>
+                    <th>Hall-Ticket Number</th><th>:</th>
+                    <td><input type="text" pattern="[a-zA-Z0-9]+" name="rollno" id="rollno" maxlength="10" class="input" required></td>
+				</tr>
+				<tr>
+                    <th>Email-Id </th><th>:</th>
+                    <td><input type="email"  name="email" id="email" class="input" required></td>
+				</tr>
+				<tr>
+                    <th>Mobile Number </th><th>:</th>
+                    <td><input type="text"  pattern="^[6-9][0-9]{9}$" name="mobile" id="mobile" class="input" maxlength="10" required></td>
+				</tr>
+				</table>
+				
+				<table align="center" width="40%">
+				<tr> <th width="40%">Current Education </th><th>:</th>
+                    <td><Select name="course" required>
+                        <option value="">---select---</option>
+                        <option value="btech">BTech</option>
+						<option value="bphrm">BPhrm</option>
+                        <option value="mtech">MTech</option>
+                        <option value="mca">MCA</option>
+                        <option value="msit">MSIT</option>
+						<option value="mphrm">MPhrm</option>
+                    </Select></td>
+                </tr>
+				 
+                <tr>
+				<th>Branch </th><th>:</th>
+                    <td><Select name="branch" required>
+                        <option value="">---select---</option>
+                        <option value="cse">CSE</option>
+                        <option value="ece">ECE</option>
+                        <option value="eee">EEE</option>
+                        <option value="me">ME</option>
+                        <option value="pce">PCE</option>
+                    </Select></td>
+                </tr>
+				<tr>
+				 <th>Current Year </th><th>:</th>
+                    <td><Select name="year" required>
+                        <option value="">---select---</option>
+                        <option value="1">I</option>
+                        <option value="2">II</option>
+                        <option value="3">III</option>
+                        <option value="4">IV</option>
+                    </SELEct></td>
+                </tr>
+				<tr>
+				<th>Current Semester </th><th>:</th>
+					<td><Select name="semester" required>
+                        <option value="">---select---</option>
+                        <option value="1">I</option>
+                        <option value="2">II</option>
+                    </Select></td>               
+					</tr></table>
+					<br>
+					</fieldset>
+					<br>
+					<br>
+<fieldset class="set">
+				
+                   <legend class="sub_title">Professional Details</legend><br><br>
+				  <font color="indigo"><b> Educational Qualification:</b></font><br><br><br>
+                    <div id="content">
+                    <table>
+						<tr>
+                            <th width="375" style="text-align:center;">Qualification</th>
+                            <th width="375" style="text-align:center;">Year</th>
+                            <th width="375" style="text-align:center;">Percentage(%)</th><th></th>
+                        </tr>
+						<tr>
+                            <td><input type="text" name="qualification[]" id="qualification1" class="input_field"></td><td>
+                            <input type="text" pattern="[0-9]+" maxlength="4" name="qyear[]" id="qyear1" class="input_field"></td>
+							<td><input type="text" pattern="[0-9.]+" maxlength="5" name="per[]" id="per1" class="input_field"></td><td><input type="button" value="+" onclick="addAcademic()"/></td>
+                        </tr>
+					</table>
+					</div>
+					
+					<br>
+					<br><br>
+				
+				
+				<font color="indigo"><b>Awareness of Programming Languages:</b></font>
+			
+				<br><br>
+				<div id="languages">
+                    <table>
+					
+						<tr>
+                            <th width="375" style="text-align:center;">Enter Your Skill</th>
+                            <th width="375" style="text-align:center;"><div class="tooltip"><div align="center">Give Your Rating<!--<div align="right">(?)</div></div>
+  <span class="tooltiptext"> 1 - Theoritical understanding alone.<br>2 - Have acquired fundamentals of the skill<br>3 - Proficient in using/ applying this skill.<br>4 - Acquired professional certification/ reputation in forums, deployed solutions etc.<br>
+  5 - Considered the best in class/college in this skill. Can clear advanced levels of interview/certification exams in this skill.</span>-->
+</div></th>
+                            <th width="375" style="text-align:center;"> Certification if any</th><th></th>
+                        </tr>
+						<tr>
+                            <td><input type="text" name="skill[]" id="skill1" class="input_field"></td><td>
+                            <input type="number"  maxlength="2" name="rate[]" id="rate1" class="input_field" placeholder="1 to 10"></td>
+							<td><input type="text" name="certify[]" id="certify1" class="input_field"></td><td><input type="button" value="+" onclick="addLanguages()"/></td>
+                        </tr>
+					</table>
+					</div>
+					
+					<br>
+					<br><br>
+				
+					<table>
+				<tr>
+				<th width="610" >External Certificates :</th><th></th></tr>
+				<tr><td><input type="text" class="input" name="certificates[]" id="certificates1">&nbsp;<input type="button" value="+" onclick="addCertificates()"></td></tr>
+                <tr id="certificates" >
+                   
+                </tr>
+				
+				</table>
+				
+				
+				
+				<br>
+				
+				
+				<br>
+				
+				<table>
+				<tr><th width="610">Others:</th></tr>
+                          <tr>  <td ><input type="text" name="others" id="others" class="input" ></td></tr></table><br>
+               </fieldset><br>
+			   <fieldset class="set">
+				
+				<br>
+                   <legend class="sub_title">Innovative Solutions Implemented</legend>
+                    <div id="innovative">
+                    <table>
+						<tr>
+                            <th width="375" style="text-align:center; font-size:20px;">Problem Scenario</th>
+                            <th width="375" style="text-align:center;font-size:20px;">Solution Provided</th>
+                            <th width="375" style="text-align:center;font-size:20px;">Implementation Details</th><th></th>
+                        </tr>
+						<tr>
+                            <td><input type="text" name="problem[]" id="problem1" class="input_field"></td><td>
+                            <input type="text" name="solution[]" id="solution1" class="input_field"></td>
+							<td><input type="text" name="details[]" id="details1" class="input_field"></td><td><input type="button" value="+" onclick="addInnovative()"></td>
+                        </tr>
+						</table>
+					</div>
+					
+					<br>
+					</fieldset>
+					<br>
+					<fieldset class="set">
+					<br>
+				
+                   <legend class="sub_title">New Ideas</legend>
+                    <div id="idea">
+                    <table>
+						<tr>
+                            <th width="610" style="text-align:center;font-size:20px;">Idea</th>
+                            <th width="610" style="text-align:center;font-size:20px;">Domain Impact</th>
+                            <th></th>
+                        </tr>
+						<tr>
+                            <td><input type="text" name="idea[]" id="idea1" class="input_field1"></td><td>
+                            <input type="text" name="domain[]" id="domain1" class="input_field1"></td><td><input type="button" value="+"  onclick="addIdea()"></td>
+							
+                        </tr>
+						</table>
+					</div><br>
+					</fieldset>
+					<input type="hidden" id="academic_count" name="academic_count">
+					<input type="hidden" id="language_count" name="language_count">
+					<input type="hidden" id="certificate_count" name="certificate_count">
+					<input type="hidden" id="innovative_count" name="innovative_count">
+					<input type="hidden" id="idea_count" name="idea_count">
+					
+						<br>
+			<table align="center">
+               
+                <tr>
+				<th colspan=4><input type="reset" value="Reset"></th>
+                    <th colspan=4><input type="submit" name="submit" value="Save"></th>
+                    
+                </tr>
+            </table>
+            </div>
+        </form>
+		
+		
+		<div id="id01" class="modal">
+  
+  <form class="modal-content animate" method="POST" action="login.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="jntuk-logo.png" width="150" height="200" alt="logo" class="avatar">
+    </div>
+
+    <div class="container_popup">
+	Please Login to Generate Excel Report<br><br><br>
+      <label for="uname"><b>Username</b></label>
+      <input type="text" class="login" placeholder="Enter Username" name="uname" required>
+
+      <label for="pswd"><b>Password</b></label>
+      <input type="password" class="login" placeholder="Enter Password" name="pswd" required>
+        <br><br>
+      <button type="submit" class="login">Login</button><br><br><br>
+    
+    </div>
+
+   <!-- <div class="container_popup" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <!--<span class="psw">Forgot <a href="#">password?</a></span>
+    </div>-->
+  </form>
+</div>
+
+
+		
+        
+</body>
+</html>
