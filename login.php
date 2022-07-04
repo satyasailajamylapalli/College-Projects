@@ -1,7 +1,6 @@
 <?php
 
-
-$con=pg_connect("host=localhost port=5432 dbname=innovation_center user=openpg password=admin");
+$con=pg_connect("host=localhost port=5432 dbname=innovation_center user=postgres password=admin");
 	if(!$con){
 		die('Connection error:'.pg_last_error());
 	}
