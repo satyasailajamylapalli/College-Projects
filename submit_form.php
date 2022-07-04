@@ -12,14 +12,15 @@
 	$idea=$_POST['idea'];
 	$domain=$_POST['domain'];
 	
-	$con=pg_connect("host=localhost port=5432 dbname=innovation_center user=openpg password=admin");
+	$con=pg_connect("host=localhost port=5432 dbname=innovation_center user=postgres password=admin");
 	if(!$con){
 		die('Connection error:'.pg_last_error());
 	}
 	else
 	{
 		echo 'connected';
-		$student_query = "INSERT INTO student_info(sname, student_id, email, mobile, course, branch, course_year, semester, others_info, create_date, write_date) VALUES ('$_POST[sname]', '$_POST[rollno]', '$_POST[email]', $_POST[mobile], '$_POST[course]', '$_POST[branch]', $_POST[year], $_POST[semester], '$_POST[others]', current_timestamp, current_timestamp)";
+
+		$student_query = "INSERT INTO student_info(sname, student_id, email, mobile, course, branch, course_year, semester, others_info, create_date, write_date) VALUES ('$_POST[sname]', '$_POST[rollno]', '$_POST[email]', '$_POST[mobile]', '$_POST[course]', '$_POST[branch]', $_POST[year], $_POST[semester], '$_POST[others]', current_timestamp, current_timestamp)";
 		$student_result = pg_query($student_query)  or die("Cannot execute query: "+$student_query+"\n");
 	if ($student_result > 0){
 		echo 'one row executed: student';
