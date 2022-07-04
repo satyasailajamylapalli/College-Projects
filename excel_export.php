@@ -1,6 +1,6 @@
 <?php  
   
-$con=pg_connect("host=localhost port=5432 dbname=innovation_center user=openpg password=admin");
+$con=pg_connect("host=localhost port=5432 dbname=innovation_center user=postgres password=admin");
 	if(!$con){
 		die('Connection error:'.pg_last_error());
 	}
@@ -12,8 +12,8 @@ $con=pg_connect("host=localhost port=5432 dbname=innovation_center user=openpg p
 		$rs=pg_query($con,$student_query) or die("Cannot execute query: Student\n");
 		
 		$headdings='';
-		$headdings="\t"."Personal Information" . "\t" . " Education Qualification" . "\t". "Awareness of Programming Languages". "\t". "External Certificates". "\t". "Other Information". "\t";
-		$headdings.="Innovative Solutions Implemented"."\t". "New Ideas". "\t"; 
+		//$headdings="\t"."Personal Information" . "\t" . " Education Qualification" . "\t". "Awareness of Programming Languages". "\t". "External Certificates". "\t". "Other Information". "\t";
+		//$headdings.="Innovative Solutions Implemented"."\t". "New Ideas". "\t"; 
 		$columnHeader = '';  
 		$columnHeader = "Sr NO" . "\t" . "Hallticket Number" . "\t" . "Name" . "\t" . "Course" . "\t" . "Branch" . "\t" . "Year" . "\t" . "Semester" . "\t" . "Email" . "\t" . "Mobile Number" . "\t" . "Other Information" . "\t";  
 		$columnHeader .="Qualification" . "\t" . "Year" . "\t" . "Percentage" . "\t" ;
